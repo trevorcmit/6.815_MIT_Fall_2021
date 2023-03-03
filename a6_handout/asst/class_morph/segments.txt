@@ -1,0 +1,57 @@
+
+void classMorph() {
+  // Test morph
+  Image fredo("./Input/myface.png");
+  Image werewolf("./Input/mikaeln.png");
+
+  // ... use the UI to specify segments
+  vector<Segment> segsBefore;
+  segsBefore.push_back(Segment(Vec2f(164, 302), Vec2f(219, 299)));
+  segsBefore.push_back(Segment(Vec2f(342, 300), Vec2f(294, 292)));
+  segsBefore.push_back(Segment(Vec2f(206, 368), Vec2f(238, 295)));
+  segsBefore.push_back(Segment(Vec2f(292, 372), Vec2f(275, 298)));
+  segsBefore.push_back(Segment(Vec2f(194, 409), Vec2f(233, 402)));
+  segsBefore.push_back(Segment(Vec2f(239, 402), Vec2f(293, 425)));
+  segsBefore.push_back(Segment(Vec2f(299, 428), Vec2f(248, 450)));
+  segsBefore.push_back(Segment(Vec2f(238, 451), Vec2f(194, 413)));
+  segsBefore.push_back(Segment(Vec2f(139, 389), Vec2f(173, 468)));
+  segsBefore.push_back(Segment(Vec2f(177, 475), Vec2f(251, 522)));
+  segsBefore.push_back(Segment(Vec2f(259, 522), Vec2f(345, 473)));
+  segsBefore.push_back(Segment(Vec2f(352, 465), Vec2f(376, 392)));
+  segsBefore.push_back(Segment(Vec2f(135, 326), Vec2f(154, 190)));
+  segsBefore.push_back(Segment(Vec2f(165, 178), Vec2f(342, 173)));
+  segsBefore.push_back(Segment(Vec2f(354, 178), Vec2f(383, 322)));
+  segsBefore.push_back(Segment(Vec2f(3, 480), Vec2f(150, 438)));
+  segsBefore.push_back(Segment(Vec2f(365, 455), Vec2f(497, 504)));
+  vector<Segment> segsAfter;
+  segsAfter.push_back(Segment(Vec2f(184, 297), Vec2f(220, 293)));
+  segsAfter.push_back(Segment(Vec2f(286, 288), Vec2f(251, 290)));
+  segsAfter.push_back(Segment(Vec2f(217, 335), Vec2f(226, 296)));
+  segsAfter.push_back(Segment(Vec2f(256, 333), Vec2f(244, 298)));
+  segsAfter.push_back(Segment(Vec2f(205, 375), Vec2f(236, 366)));
+  segsAfter.push_back(Segment(Vec2f(240, 367), Vec2f(270, 372)));
+  segsAfter.push_back(Segment(Vec2f(272, 376), Vec2f(239, 393)));
+  segsAfter.push_back(Segment(Vec2f(235, 397), Vec2f(206, 380)));
+  segsAfter.push_back(Segment(Vec2f(169, 355), Vec2f(185, 399)));
+  segsAfter.push_back(Segment(Vec2f(190, 404), Vec2f(230, 434)));
+  segsAfter.push_back(Segment(Vec2f(242, 432), Vec2f(277, 407)));
+  segsAfter.push_back(Segment(Vec2f(283, 399), Vec2f(301, 352)));
+  segsAfter.push_back(Segment(Vec2f(148, 312), Vec2f(171, 242)));
+  segsAfter.push_back(Segment(Vec2f(177, 236), Vec2f(286, 232)));
+  segsAfter.push_back(Segment(Vec2f(293, 234), Vec2f(304, 308)));
+  segsAfter.push_back(Segment(Vec2f(25, 535), Vec2f(164, 459)));
+  segsAfter.push_back(Segment(Vec2f(297, 446), Vec2f(437, 533)));
+
+  // This should monsterify Fredo a little.
+  vector<Image> out = morph(fredo, werewolf, segsBefore, segsAfter, 30);
+
+  // This is how you can write an image sequence
+  for (int i = 0; i < (int)out.size(); ++i) {
+    ostringstream fname;
+    fname << "./Output/class_morph_";
+    fname << setfill('0') << setw(2);
+    fname << i;
+    fname << ".png";
+    out[i].write(fname.str());
+  }
+}

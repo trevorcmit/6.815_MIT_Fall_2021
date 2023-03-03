@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Panorama UI</title>
+</head>
+<body>
+    <h1>Panorama Stitching UI</h1>
+    <p>You can use this interface to write correspondences pairs for two images in order to stitch them together into a panorama!</p> 
+    <p>First Choose a color!</p>
+    <button class="button" onclick="changeBlack()" style="background-color:#555555;">Black</button>
+    <button class="button" onclick="changeRed()" style="background-color:#f44336;">Red</button>
+    <button class="button" onclick="changeGreen()"style="background-color:#4CAF50;">Green</button>
+    <button class="button" onclick="changeBlue()"style="background-color:#008CBA;">Blue</button>
+
+    <label style="margin-left:20px">current color:</label>
+    <div id = "colorSwatch" style="width:20px; height:20px; margin-left:300px; margin-top:-20px; background-color:#f44336;"></div>
+
+    <script>
+        function changeBlack(){
+            document.getElementById("colorSwatch").style.backgroundColor = '#555555';
+        }
+        function changeRed(){
+            document.getElementById("colorSwatch").style.backgroundColor = '#f44336';
+
+        }
+        function changeGreen(){
+            document.getElementById("colorSwatch").style.backgroundColor = '#4CAF50';
+
+        }
+        function changeBlue(){
+            document.getElementById("colorSwatch").style.backgroundColor = '#008CBA';
+        }
+    </script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/raphael-min.js"></script>
+    <script src="js/ui.js"></script>
+    <script>
+        path1='Input/boston1-1.png'
+        path2='Input/boston1-2.png'
+    </script>
+    <p>Press Ctrl+Z to undo if you misclick!</p>
+    <div id="canvas"></div>
+    <div id="points" ></div>
+    <p id="debug"></p>
+    <p>
+        (Fall 2017)<br/>
+        Improved UI Courtesy of<br/>
+        <strong>Daniel Sanchez</strong> for the undo feature<br/>
+        <strong>Emily Van Belleghem</strong> for the colorful points with labels<br/>
+        <strong>TAs</strong> for combining the features and incorporating them to the assignment
+    </p>
+</body>
+</html>
+
+

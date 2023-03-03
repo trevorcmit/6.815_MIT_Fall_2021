@@ -1,0 +1,21 @@
+.color-box {
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    border: 2px solid #DDD;
+    margin: 10px 5px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.color-selected {
+    border: 4px solid #A9A2A2;
+}
+
+body {
+    margin: 20px;
+}
+
+.selected-segment {
+    background-color: #FFFF00;
+}
